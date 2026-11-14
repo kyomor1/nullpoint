@@ -296,6 +296,29 @@ kbd { font-family: var(--f-mono); font-size: 12px; padding: 3px 7px; border-radi
   display: flex; flex-direction: column; align-items: center; text-align: center; gap: 10px; margin-block: 8px 56px;
   background: repeating-linear-gradient(-45deg, transparent 0 14px, color-mix(in srgb, var(--lab) 4%, transparent) 14px 28px);
 }
+.exp { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 22px; display: flex; flex-direction: column; gap: 18px; min-width: 0; position: relative; overflow: hidden; }
+.exp::before { content: ""; position: absolute; inset: 0 0 auto; height: 3px; background: repeating-linear-gradient(-45deg, var(--lab) 0 6px, transparent 6px 12px); opacity: .7; }
+.exp-head { display: grid; grid-template-columns: auto 1fr; gap: 14px; align-items: center; }
+.exp-head h3 { font-size: 20px; font-weight: 500; }
+.exp-head p { color: var(--muted); font-size: 14.5px; margin-top: 3px; }
+.track { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px; }
+.track div { display: flex; flex-direction: column; gap: 6px; }
+.track div::before { content: ""; height: 4px; border-radius: 2px; background: var(--line); }
+.track div.done::before { background: color-mix(in srgb, var(--lab) 55%, transparent); }
+.track div.now::before { background: var(--lab); box-shadow: 0 0 10px color-mix(in srgb, var(--lab) 60%, transparent); }
+.track span { font-family: var(--f-mono); font-size: 11px; color: var(--muted); letter-spacing: .04em; }
+.track div.now span { color: var(--lab); }
+.cols { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+@media (max-width: 520px) { .cols { grid-template-columns: 1fr; } }
+.cols h4 { margin: 0 0 8px; font-family: var(--f-mono); font-weight: 500; font-size: 11.5px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.checks { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; font-size: 14.5px; }
+.checks li { display: flex; gap: 9px; align-items: baseline; }
+.checks li::before { content: "✓"; font-family: var(--f-mono); font-size: 12px; color: var(--ok); flex: none; }
+.checks.todo li::before { content: "○"; color: var(--muted); }
+.note { font-family: var(--f-mono); font-size: 12.5px; color: var(--muted); padding: 12px 14px; border-radius: 10px; background: var(--surface-2); border: 1px dashed var(--line); }
+.note b { color: var(--lab); font-weight: 500; }
+.exp-foot { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; justify-content: space-between; margin-top: auto; }
+.nobuild { font-family: var(--f-mono); font-size: 12px; color: var(--muted); padding: 8px 12px; border: 1px solid var(--line); border-radius: 8px; }
 .empty .flask { width: 44px; height: 44px; color: var(--lab); }
 .empty h3 { font-size: 20px; font-weight: 500; }
 .empty p { color: var(--muted); max-width: 46ch; }
@@ -310,6 +333,11 @@ kbd { font-family: var(--f-mono); font-size: 12px; padding: 3px 7px; border-radi
 .teaser .slot div { display: flex; align-items: center; gap: 10px; }
 .teaser .slot i { width: 30px; height: 30px; border-radius: 9px; border: 1px dashed var(--line); flex: none; }
 .teaser .slot div:first-child i { border-color: color-mix(in srgb, var(--lab) 60%, transparent); }
+.teaser .slot a { display: grid; grid-template-columns: auto 1fr auto; gap: 12px; align-items: center; text-decoration: none; font-family: var(--f-body); font-size: 15px; color: var(--fg); padding: 8px 10px; margin: -8px -10px; border-radius: 10px; }
+.teaser .slot a:hover { background: var(--surface-2); }
+.teaser .slot a .icon { --s: 30px; border-radius: 9px; filter: saturate(.6); }
+.teaser .slot a small { display: block; color: var(--muted); font-size: 13px; }
+.pill { font-family: var(--f-mono); font-size: 11px; letter-spacing: .06em; padding: 4px 9px; border-radius: 999px; color: var(--lab); border: 1px solid color-mix(in srgb, var(--lab) 45%, transparent); white-space: nowrap; }
 @media (max-width: 820px) { .teaser-in { grid-template-columns: 1fr; } }
 
 /* about */
@@ -407,6 +435,7 @@ const T = {
     shots: 'Как выглядит', desc: 'Описание', history: 'История версий', req: 'Требования', keys: 'Горячие клавиши', temps: 'Цвет температуры',
     shot_of: 'из', close: 'Закрыть', open_shot: 'Открыть картинку',
     soon: 'Скоро', soon_note: 'Сборка готовится к публикации. Загляни чуть позже.', made_by: 'Сделано',
+    can_h: 'Уже умеет', todo_h: 'В работе', nobuild: 'Сборки пока нет',
     lab_eyebrow: '~/nullpoint/lab', lab_h1: 'Лаборатория: <em>то, что ещё варится</em>',
     lab_p: 'Здесь будут проекты в работе. Какие-то можно будет скачать и потестировать, другие пока будут существовать только в виде идеи или прототипа. Я буду рассказывать, что они уже умеют и над чем я работаю.',
     stages: [['Идея', 'Задумка и первые наброски, скачать нечего'], ['Прототип', 'Основное работает, но только у меня'], ['Альфа', 'Можно попробовать, будут баги'], ['Бета', 'Почти готово, ищу тестеров']],
@@ -434,6 +463,7 @@ const T = {
     shots: 'How it looks', desc: 'About', history: 'Version history', req: 'Requirements', keys: 'Hotkeys', temps: 'Temperature colors',
     shot_of: 'of', close: 'Close', open_shot: 'Open image',
     soon: 'Soon', soon_note: 'This build is being prepared for release. Check back a bit later.', made_by: 'Made by',
+    can_h: 'Already does', todo_h: 'In progress', nobuild: 'No build yet',
     lab_eyebrow: '~/nullpoint/lab', lab_h1: 'The lab: <em>still cooking</em>',
     lab_p: 'Work-in-progress projects will show up here. Some will have test builds to try, others will exist only as an idea or a prototype. I’ll describe what they already do and what I’m working on.',
     stages: [['Idea', 'A concept and first sketches, nothing to download'], ['Prototype', 'The core works, but only on my machine'], ['Alpha', 'You can try it, expect bugs'], ['Beta', 'Almost done, looking for testers']],
@@ -446,7 +476,8 @@ const L = v => (v && typeof v === 'object' && !Array.isArray(v) && ('ru' in v ||
 const GLYPH = {
   pad: '<path d="M7.5 7h9a4 4 0 0 1 3.9 3.1l1.2 5.4a2.2 2.2 0 0 1-3.8 1.9L16 15.5H8l-1.8 1.9a2.2 2.2 0 0 1-3.8-1.9l1.2-5.4A4 4 0 0 1 7.5 7z"/><path d="M8 10v3M6.5 11.5h3"/><circle cx="15.5" cy="10.8" r=".6" fill="currentColor"/><circle cx="17" cy="12.3" r=".6" fill="currentColor"/>',
   fps: '<path d="M3 17h3l2.5-7 3 9 3-13 2.5 8 1-3h3"/>',
-  conv: '<path d="M4 8h13l-3.5-3.5M20 16H7l3.5 3.5"/>'
+  conv: '<path d="M4 8h13l-3.5-3.5M20 16H7l3.5 3.5"/>',
+  clip: '<rect x="5.5" y="4.5" width="13" height="16.5" rx="2"/><path d="M9 4.5V3h6v1.5M9 10h6M9 13.5h6M9 17h3.5"/>'
 };
 
 /* Приложения. Тексты, которые стоит проверить, помечены в ответе */
@@ -558,8 +589,25 @@ const APPS = [
   }
 ];
 
-/* Лаборатория: добавляй сюда эксперименты. Пока пусто */
-const LAB = [];
+/* Лаборатория: эксперименты. stage — индекс в t('stages'): 0 идея, 1 прототип, 2 альфа, 3 бета */
+const LAB = [
+  {
+    id: 'clipy', name: 'Clipy', hue: 262, glyph: 'clip', stage: 2, updated: '2026-10-19',
+    tag: { ru: 'Менеджер буфера обмена: всё, что ты копировал, под рукой', en: 'A clipboard manager that keeps everything you copy' },
+    can: {
+      ru: ['Хранит историю: текст, RTF, HTML, картинки и файлы', 'Поиск, избранное и закреплённые записи', 'Текстовые шаблоны', 'Быстрая вставка по горячим клавишам', 'Живёт в трее и запускается вместе с Windows', 'Тёмная тема и выбор акцентного цвета'],
+      en: ['Keeps history: text, RTF, HTML, images and files', 'Search, favourites and pinned clips', 'Text templates', 'Quick paste with hotkeys', 'Lives in the tray and starts with Windows', 'Dark theme with a choice of accent colour']
+    },
+    todo: {
+      ru: ['Перенос истории из Clipdiary', 'Компактное главное окно', 'Установщик', 'Финальное тестирование'],
+      en: ['Import history from Clipdiary', 'Compact main window', 'Installer', 'Final testing']
+    },
+    note: {
+      ru: 'Разбираю, как устроена база оригинального Clipdiary, чтобы Clipy перенёс из неё всю историю. Схема базы уже понятна.',
+      en: 'Working out how the original Clipdiary stores its data so Clipy can import your whole history. The database layout is already mapped.'
+    }
+  }
+];
 
 /* ---------- helpers ---------- */
 const $ = (s, el = document) => el.querySelector(s);
@@ -618,7 +666,7 @@ function home() {
   <section class="section"><div class="wrap">
     <div class="teaser"><div class="hazard"></div><div class="teaser-in">
       <div><h2>${t('teaser_h')}</h2><p>${t('teaser_p')}</p><a class="btn lab" href="#lab">${t('teaser_btn')}</a></div>
-      <div class="slot"><div><i></i>${t('slot1')}</div><div><i></i>${t('slot2')}</div><div><i></i>${t('slot3')}</div></div>
+      <div class="slot">${LAB.map(l => `<a href="#lab">${icon(l)}<span><b>${l.name}</b><small>${L(l.tag)}</small></span><span class="pill">${t('stages')[l.stage][0].toUpperCase()}</span></a>`).join('')}${['slot1', 'slot2', 'slot3'].slice(LAB.length ? LAB.length + 1 : 0).map(k => `<div><i></i>${t(k)}</div>`).join('')}</div>
     </div></div>
   </div></section>
 
@@ -701,10 +749,24 @@ function lab() {
       <p>${t('lab_p')}</p>
       <div class="stage-legend">${t('stages').map(([s, d], i) => `<div style="--n:${i}"><b>${s}</b><span>${d}</span></div>`).join('')}</div>
     </section>
-    ${LAB.length ? '' : `<div class="empty">
+    ${LAB.length ? `<div class="lab-grid">${LAB.map(expCard).join('')}</div>` : `<div class="empty">
       <svg class="flask" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 3h6M10 3v6L4.5 18.5A1.7 1.7 0 0 0 6 21h12a1.7 1.7 0 0 0 1.5-2.5L14 9V3"/><path d="M7 15h10"/></svg>
       <h3>${t('empty_h')}</h3><p>${t('empty_p')}</p></div>`}
   </div></div>`;
+}
+
+function expCard(l) {
+  const track = t('stages').map(([s], i) => `<div class="${i < l.stage ? 'done' : i === l.stage ? 'now' : ''}"><span>${s}</span></div>`).join('');
+  return `<article class="exp" id="exp-${l.id}">
+    <div class="exp-head">${icon(l)}<div><h3>${l.name}</h3><p>${L(l.tag)}</p></div></div>
+    <div class="track" aria-label="${t('stages')[l.stage][0]}">${track}</div>
+    <div class="cols">
+      <div><h4>${t('can_h')}</h4><ul class="checks">${L(l.can).map(x => `<li>${x}</li>`).join('')}</ul></div>
+      <div><h4>${t('todo_h')}</h4><ul class="checks todo">${L(l.todo).map(x => `<li>${x}</li>`).join('')}</ul></div>
+    </div>
+    <p class="note"><b>${fmtDate(l.updated, true)}</b> · ${L(l.note)}</p>
+    <div class="exp-foot"><span class="nobuild">${t('nobuild')}</span>${plats()}</div>
+  </article>`;
 }
 
 /* ---------- lightbox ---------- */
