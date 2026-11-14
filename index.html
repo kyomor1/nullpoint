@@ -488,11 +488,11 @@ const APPS = [
     ]
   },
   {
-    id: 'fps-scope', name: 'FPS Scope', hue: 188, glyph: 'fps', mock: 'hud',
+    id: 'fps-scope', name: 'FPS Scope', hue: 188, glyph: 'fps',
     kind: { ru: 'Для игр', en: 'Gaming' },
     tag: { ru: 'Оверлей с FPS, временем кадра и температурами поверх игр', en: 'In-game overlay for FPS, frame time and temperatures' },
-    platforms: ['win'], ver: '1.1.0', date: '2026-10-24', release: null, shotSize: [640, 400],
-    files: [{ kind: { ru: 'Портативная версия', en: 'Portable' }, file: 'FPS-Scope-1.1.0-win64.zip', size: '43 MB' }],
+    platforms: ['win'], ver: '1.1.0', date: '2026-10-24', release: null, shotSize: [1280, 800],
+    files: [{ kind: { ru: 'Портативная версия', en: 'Portable' }, file: 'FPS-Scope-1.1.0-win64.zip', size: '38 MB' }],
     desc: {
       ru: 'Лёгкий оверлей поверх игры. Показывает FPS, время кадра и 1% low, загрузку и температуру процессора и видеокарты, занятую видеопамять и оперативку. Клики проходят сквозь него прямо в игру, а фокус он не перехватывает, так что игре он не мешает.',
       en: 'A lightweight overlay on top of your game. It shows FPS, frame time and 1% lows, CPU and GPU load and temperature, plus VRAM and RAM usage. Clicks pass straight through to the game and it never steals focus, so it stays out of your way.'
@@ -507,8 +507,8 @@ const APPS = [
       [['Ctrl', 'Shift', 'C'], null, { ru: 'Карточка или полоса', en: 'Card or compact bar' }]
     ],
     temps: true,
-    images: ['screenshots/fpsscope-1.png', 'screenshots/fpsscope-2.png'],
-    shots: { ru: ['Подробная карточка', 'Компактная полоса'], en: ['Detailed card', 'Compact bar'] },
+    images: ['screenshots/fpsscope-1.png', 'screenshots/fpsscope-2.png', 'screenshots/fpsscope-3.png'],
+    shots: { ru: ['Подробная карточка', 'Компактная полоса', 'Настройки'], en: ['Detailed card', 'Compact bar', 'Settings'] },
     req: [
       ['Windows', { ru: '10 или 11, x64', en: '10 or 11, x64' }],
       [{ ru: 'Видеокарта', en: 'GPU' }, { ru: 'NVIDIA для данных о видеокарте', en: 'NVIDIA for GPU stats' }],
