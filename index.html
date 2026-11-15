@@ -426,7 +426,7 @@ footer .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wr
 <main id="view"></main>
 
 <footer>
-  <div class="wrap"><span data-t="footer"></span><span>Windows</span></div>
+  <div class="wrap"><span data-t="footer"></span></div>
 </footer>
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
@@ -440,9 +440,9 @@ const T = {
   ru: {
     nav_apps: 'Приложения', nav_lab: 'Лаборатория', nav_about: 'Обо мне',
     footer: '© 2026 nullpoint · Kyo Mori',
-    eyebrow: (n) => `~/nullpoint · ${n} ${n === 1 ? 'приложение' : n < 5 ? 'приложения' : 'приложений'} · Windows`,
+    eyebrow: (n) => `~/nullpoint · ${n} ${n === 1 ? 'приложение' : n < 5 ? 'приложения' : 'приложений'}`,
     h1: 'Маленькие программы, которые делают <em>одну вещь</em> хорошо',
-    lead: 'Здесь собраны мои приложения для Windows. Каждое можно бесплатно скачать, посмотреть, как оно выглядит, и почитать историю версий.',
+    lead: 'Здесь собраны мои приложения. Каждое можно бесплатно скачать, посмотреть, как оно выглядит, и почитать историю версий.',
     to_catalog: 'Смотреть приложения', to_lab: 'Что в лаборатории',
     stat_apps: 'готовых приложения', stat_free: 'бесплатно', stat_upd: 'последнее обновление',
     release: 'релиз', next: 'дальше будет больше',
@@ -472,9 +472,9 @@ const T = {
   en: {
     nav_apps: 'Apps', nav_lab: 'Lab', nav_about: 'About',
     footer: '© 2026 nullpoint · Kyo Mori',
-    eyebrow: (n) => `~/nullpoint · ${n} app${n === 1 ? '' : 's'} · Windows`,
+    eyebrow: (n) => `~/nullpoint · ${n} app${n === 1 ? '' : 's'}`,
     h1: 'Small programs that do <em>one thing</em> well',
-    lead: 'All my Windows apps in one place. Each one is free to download, with a look at how it works and the full version history.',
+    lead: 'All my apps in one place. Each one is free to download, with a look at how it works and the full version history.',
     to_catalog: 'Browse apps', to_lab: 'What’s in the lab',
     stat_apps: 'stable apps', stat_free: 'free', stat_upd: 'last update',
     release: 'release', next: 'more coming soon',
