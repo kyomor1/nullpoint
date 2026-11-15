@@ -586,28 +586,46 @@ const APPS = [
     log: [
       { v: '0.1.4', d: '2026-11-06', items: { ru: ['Предварительная версия', 'Bluetooth проверен на настоящем DualShock 4 второго поколения'], en: ['Preview release', 'Bluetooth tested with a real second-generation DualShock 4'] } }
     ]
+  },
+  {
+    id: 'clipy', name: 'Clipy', hue: 262, glyph: 'clip',
+    kind: { ru: 'Утилиты', en: 'Utilities' },
+    tag: { ru: 'История буфера обмена: всё, что ты копировал, под рукой', en: 'Clipboard history that keeps everything you copy' },
+    platforms: ['win'], ver: '0.7.0', date: '2026-11-15', release: 'clipy-v0.7.0', shotSize: [960, 760],
+    files: [
+      { kind: { ru: 'Установщик', en: 'Installer' }, file: 'Clipy-0.7.0-setup.exe', size: '63 MB' },
+      { kind: { ru: 'Портативная версия', en: 'Portable' }, file: 'Clipy-0.7.0-win-x64.zip', size: '90 MB' }
+    ],
+    desc: {
+      ru: 'Clipy запоминает всё, что ты копируешь: текст, форматированный текст, картинки, файлы и папки. Компактное тёмное окно вызывается поверх любой программы. Находишь нужную запись, жмёшь Enter, и она вставляется туда, откуда ты Clipy вызвал. История хранится только на твоём компьютере, в интернет ничего не уходит.',
+      en: 'Clipy remembers everything you copy: plain and rich text, images, files and folders. A compact dark window pops up over any app. Find the clip you need, press Enter and it is pasted right where you called Clipy from. History stays on your PC and nothing is sent online.'
+    },
+    features: {
+      ru: ['Текст, RTF, HTML, картинки, файлы и папки', 'Поиск по тексту, именам и путям файлов', 'Избранное и закреплённые записи', 'Шаблоны с папками отдельно от истории', 'Вставка в окно, из которого вызвал Clipy', 'Предпросмотр записи рядом с окном', 'Лимиты хранения, резервная копия базы', 'Работа из трея и автозапуск с Windows'],
+      en: ['Text, RTF, HTML, images, files and folders', 'Search by text, file names and paths', 'Favourites and pinned clips', 'Templates with folders, separate from history', 'Pastes into the window you called it from', 'Clip preview next to the window', 'Storage limits and database backup', 'Runs from the tray and starts with Windows']
+    },
+    keys: [
+      [['Ctrl', 'Shift', 'D'], null, { ru: 'Открыть историю', en: 'Open history' }],
+      [['Enter'], null, { ru: 'Вставить выбранную запись', en: 'Paste the selected clip' }],
+      [['Ctrl', 'Tab'], null, { ru: 'История, шаблоны, избранное', en: 'History, templates, favourites' }],
+      [['Esc'], null, { ru: 'Скрыть Clipy', en: 'Hide Clipy' }]
+    ],
+    images: ['screenshots/clipy-1.png', 'screenshots/clipy-2.png', 'screenshots/clipy-3.png'],
+    shots: { ru: ['История и предпросмотр', 'Поиск', 'Настройки'], en: ['History and preview', 'Search', 'Settings'] },
+    req: [
+      ['Windows', { ru: '10 (2004) или 11, x64', en: '10 (2004) or 11, x64' }],
+      [{ ru: 'Права', en: 'Rights' }, { ru: 'администратор не нужен', en: 'no admin needed' }],
+      [{ ru: 'Интернет', en: 'Internet' }, { ru: 'не нужен', en: 'not needed' }],
+      [{ ru: 'Зависимости', en: 'Dependencies' }, { ru: '.NET и Windows App SDK уже в комплекте', en: '.NET and Windows App SDK included' }]
+    ],
+    log: [
+      { v: '0.7.0', d: '2026-11-15', items: { ru: ['Первый публичный выпуск', 'Установщик и портативная версия', 'Новое окно настроек', 'Автозапуск с Windows'], en: ['First public release', 'Installer and portable build', 'New settings window', 'Start with Windows'] } }
+    ]
   }
 ];
 
 /* Лаборатория: эксперименты. stage — индекс в t('stages'): 0 идея, 1 прототип, 2 альфа, 3 бета */
-const LAB = [
-  {
-    id: 'clipy', name: 'Clipy', hue: 262, glyph: 'clip', stage: 2, updated: '2026-10-19',
-    tag: { ru: 'Менеджер буфера обмена: всё, что ты копировал, под рукой', en: 'A clipboard manager that keeps everything you copy' },
-    can: {
-      ru: ['Хранит историю: текст, RTF, HTML, картинки и файлы', 'Поиск, избранное и закреплённые записи', 'Текстовые шаблоны', 'Быстрая вставка по горячим клавишам', 'Живёт в трее и запускается вместе с Windows', 'Тёмная тема и выбор акцентного цвета'],
-      en: ['Keeps history: text, RTF, HTML, images and files', 'Search, favourites and pinned clips', 'Text templates', 'Quick paste with hotkeys', 'Lives in the tray and starts with Windows', 'Dark theme with a choice of accent colour']
-    },
-    todo: {
-      ru: ['Перенос истории из Clipdiary', 'Компактное главное окно', 'Установщик', 'Финальное тестирование'],
-      en: ['Import history from Clipdiary', 'Compact main window', 'Installer', 'Final testing']
-    },
-    note: {
-      ru: 'Разбираю, как устроена база оригинального Clipdiary, чтобы Clipy перенёс из неё всю историю. Схема базы уже понятна.',
-      en: 'Working out how the original Clipdiary stores its data so Clipy can import your whole history. The database layout is already mapped.'
-    }
-  }
-];
+const LAB = [];
 
 /* ---------- helpers ---------- */
 const $ = (s, el = document) => el.querySelector(s);
