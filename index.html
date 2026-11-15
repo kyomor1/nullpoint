@@ -320,6 +320,7 @@ kbd { font-family: var(--f-mono); font-size: 12px; padding: 3px 7px; border-radi
 .exp-foot { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; justify-content: space-between; margin-top: auto; }
 .exp-dl { display: flex; flex-wrap: wrap; gap: 8px; }
 .exp-size { font-family: var(--f-mono); font-size: 12px; opacity: .7; }
+.exp-lock { flex-basis: 100%; order: 3; margin: 0; font-size: 13px; color: var(--muted); }
 .nobuild { font-family: var(--f-mono); font-size: 12px; color: var(--muted); padding: 8px 12px; border: 1px solid var(--line); border-radius: 8px; }
 .empty .flask { width: 44px; height: 44px; color: var(--lab); }
 .empty h3 { font-size: 20px; font-weight: 500; }
@@ -677,8 +678,10 @@ const LAB = [
       release: '404cord-v1.1.1', ver: '1.1.1',
       files: [
         { file: '404Cord-1.1.1-Windows.zip', label: { ru: 'Программа', en: 'App' }, size: '107 MB' },
-        { file: '404Cord-Server-1.1.1.zip', label: { ru: 'Сервер', en: 'Server' }, size: '0.3 MB' }
-      ]
+        { file: '404Cord-Server-1.1.1.zip', label: { ru: 'Сервер', en: 'Server' }, size: '0.3 MB' },
+        { file: '404Cord-1.1.1-Friend.7z', label: { ru: 'Для друзей', en: 'For friends' }, size: '107 MB', lock: true }
+      ],
+      lockNote: { ru: 'Комплект «Для друзей» уже настроен на мой сервер и закрыт паролем. Пароль спрашивай у меня, открывается в 7-Zip или WinRAR.', en: 'The “For friends” kit is set up for my own server and locked with a password. Ask me for it; open it with 7-Zip or WinRAR.' }
     }
   }
 ];
@@ -689,7 +692,8 @@ const view = $('#view');
 const fmtDate = (d, short) => new Date(d + 'T12:00:00').toLocaleDateString(lang === 'ru' ? 'ru-RU' : 'en-US', short ? { day: 'numeric', month: 'short' } : { day: 'numeric', month: 'long', year: 'numeric' });
 const icon = a => `<span class="icon" style="--h:${a.hue}" aria-hidden="true"><svg viewBox="0 0 24 24">${GLYPH[a.glyph]}</svg></span>`;
 const plats = () => `<span class="plats"><span class="plat">WINDOWS</span></span>`;
-const dlIcon = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11m-5-5 5 5 5-5M5 20h14"/></svg>';
+const lockIcon = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>';
+const dlIcon ='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11m-5-5 5 5 5-5M5 20h14"/></svg>';
 
 /* ---------- скриншоты и ссылки на загрузку ---------- */
 const RELEASES = 'https://github.com/kyomor1/nullpoint/releases/download';
@@ -850,7 +854,7 @@ function expCard(l) {
     </div>
     <p class="note"><b>${fmtDate(l.updated, true)}</b> · ${L(l.note)}</p>
     <div class="exp-foot">${l.build
-      ? `<div class="exp-dl">${l.build.files.map(f => `<a class="btn lab small" href="${RELEASES}/${l.build.release}/${f.file}" rel="noopener">${dlIcon}${L(f.label)} <span class="exp-size">${f.size}</span></a>`).join('')}</div>`
+      ? `<div class="exp-dl">${l.build.files.map(f => `<a class="btn small ${f.lock ? '' : 'lab'}" href="${RELEASES}/${l.build.release}/${f.file}" rel="noopener">${f.lock ? lockIcon : dlIcon}${L(f.label)} <span class="exp-size">${f.size}</span></a>`).join('')}</div>${l.build.lockNote ? `<p class="exp-lock">${L(l.build.lockNote)}</p>` : ''}`
       : `<span class="nobuild">${t('nobuild')}</span>`}${plats()}</div>
   </article>`;
 }
