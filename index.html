@@ -351,9 +351,6 @@ kbd { font-family: var(--f-mono); font-size: 12px; padding: 3px 7px; border-radi
 .contact code { font-family: var(--f-mono); font-size: 14px; user-select: all; overflow-wrap: anywhere; }
 .copy { background: none; border: 1px solid var(--line); border-radius: 8px; padding: 5px 9px; font-size: 12px; cursor: pointer; color: var(--muted); }
 .copy:hover { color: var(--fg); }
-.sign { margin-top: 24px; width: max-content; display: flex; flex-direction: column; gap: 4px; padding: 20px 24px; border: 1px solid var(--line); border-radius: var(--r); background: var(--surface); }
-.sign span { font-family: var(--f-mono); font-size: 11.5px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
-.sign b { font-family: var(--f-display); font-weight: 500; font-size: 26px; }
 .btn.soon { justify-content: center; cursor: default; color: var(--muted); }
 .btn.soon:hover { border-color: var(--line); }
 .dl-note { font-size: 13px; color: var(--muted); }
@@ -745,8 +742,7 @@ function renderGrid() {
 
 function aboutBlock() {
   return `<section id="about"><div class="wrap about">
-    <div class="about-text"><h2>${t('about_h')}</h2><p>${t('about_p1')}</p><p>${t('about_p2')}</p>
-      <div class="sign"><span>${t('made_by')}</span><b>Kyo Mori</b></div></div>
+    <div class="about-text"><h2>${t('about_h')}</h2><p>${t('about_p1')}</p><p>${t('about_p2')}</p></div>
     <form class="fb" id="fb" novalidate>
       <h3>${t('f_h')}</h3>
       <div class="fb-row">
