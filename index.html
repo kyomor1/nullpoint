@@ -318,6 +318,8 @@ kbd { font-family: var(--f-mono); font-size: 12px; padding: 3px 7px; border-radi
 .note { font-family: var(--f-mono); font-size: 12.5px; color: var(--muted); padding: 12px 14px; border-radius: 10px; background: var(--surface-2); border: 1px dashed var(--line); }
 .note b { color: var(--lab); font-weight: 500; }
 .exp-foot { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; justify-content: space-between; margin-top: auto; }
+.exp-dl { display: flex; flex-wrap: wrap; gap: 8px; }
+.exp-size { font-family: var(--f-mono); font-size: 12px; opacity: .7; }
 .nobuild { font-family: var(--f-mono); font-size: 12px; color: var(--muted); padding: 8px 12px; border: 1px solid var(--line); border-radius: 8px; }
 .empty .flask { width: 44px; height: 44px; color: var(--lab); }
 .empty h3 { font-size: 20px; font-weight: 500; }
@@ -506,7 +508,8 @@ const GLYPH = {
   pad: '<path d="M7.5 7h9a4 4 0 0 1 3.9 3.1l1.2 5.4a2.2 2.2 0 0 1-3.8 1.9L16 15.5H8l-1.8 1.9a2.2 2.2 0 0 1-3.8-1.9l1.2-5.4A4 4 0 0 1 7.5 7z"/><path d="M8 10v3M6.5 11.5h3"/><circle cx="15.5" cy="10.8" r=".6" fill="currentColor"/><circle cx="17" cy="12.3" r=".6" fill="currentColor"/>',
   fps: '<path d="M3 17h3l2.5-7 3 9 3-13 2.5 8 1-3h3"/>',
   conv: '<path d="M4 8h13l-3.5-3.5M20 16H7l3.5 3.5"/>',
-  clip: '<rect x="5.5" y="4.5" width="13" height="16.5" rx="2"/><path d="M9 4.5V3h6v1.5M9 10h6M9 13.5h6M9 17h3.5"/>'
+  clip: '<rect x="5.5" y="4.5" width="13" height="16.5" rx="2"/><path d="M9 4.5V3h6v1.5M9 10h6M9 13.5h6M9 17h3.5"/>',
+  chat: '<path d="M4 6.5A2.5 2.5 0 0 1 6.5 4h11A2.5 2.5 0 0 1 20 6.5v7a2.5 2.5 0 0 1-2.5 2.5H10l-4.5 4v-4h0A1.5 1.5 0 0 1 4 14.5z"/><path d="M8.5 9h7M8.5 12h4.5"/>'
 };
 
 /* Приложения. Тексты, которые стоит проверить, помечены в ответе */
@@ -654,7 +657,31 @@ const APPS = [
 ];
 
 /* Лаборатория: эксперименты. stage — индекс в t('stages'): 0 идея, 1 прототип, 2 альфа, 3 бета */
-const LAB = [];
+const LAB = [
+  {
+    id: '404cord', name: '404Cord', hue: 84, glyph: 'chat', stage: 2, updated: '2026-11-15',
+    tag: { ru: 'Чат и голос для своей компании на собственном сервере', en: 'Chat and voice for your friends, on a server you run yourself' },
+    can: {
+      ru: ['Текстовые и голосовые каналы', 'Демонстрация одного или двух экранов со звуком', 'Файлы, голосовые сообщения, реакции и ответы', 'Редактирование и закрепление сообщений', 'Профили со значками и рамками аватара', 'Свой сервер на твоём ПК: вход по коду приглашения'],
+      en: ['Text and voice channels', 'Share one or two screens with sound', 'Files, voice messages, reactions and replies', 'Edit and pin messages', 'Profiles with badges and avatar frames', 'Your own server on your PC, joined with an invite code']
+    },
+    todo: {
+      ru: ['Проверка с друзьями в реальных звонках', 'Простой запуск сервера без командной строки', 'Подпись программы, чтобы не ругался SmartScreen'],
+      en: ['Testing with friends in real calls', 'Starting the server without the command line', 'Code signing so SmartScreen stops complaining']
+    },
+    note: {
+      ru: 'Версия 1.1.1: значки в профиле, рамки аватара и корона владельца сервера. Программе нужен сервер: его запускает кто-то один из компании, архив сервера лежит рядом.',
+      en: 'Version 1.1.1: profile badges, avatar frames and a crown for the server owner. The app needs a server: one person in your group runs it, and the server archive is right next to the app.'
+    },
+    build: {
+      release: '404cord-v1.1.1', ver: '1.1.1',
+      files: [
+        { file: '404Cord-1.1.1-Windows.zip', label: { ru: 'Программа', en: 'App' }, size: '107 MB' },
+        { file: '404Cord-Server-1.1.1.zip', label: { ru: 'Сервер', en: 'Server' }, size: '0.3 MB' }
+      ]
+    }
+  }
+];
 
 /* ---------- helpers ---------- */
 const $ = (s, el = document) => el.querySelector(s);
@@ -822,7 +849,9 @@ function expCard(l) {
       <div><h4>${t('todo_h')}</h4><ul class="checks todo">${L(l.todo).map(x => `<li>${x}</li>`).join('')}</ul></div>
     </div>
     <p class="note"><b>${fmtDate(l.updated, true)}</b> · ${L(l.note)}</p>
-    <div class="exp-foot"><span class="nobuild">${t('nobuild')}</span>${plats()}</div>
+    <div class="exp-foot">${l.build
+      ? `<div class="exp-dl">${l.build.files.map(f => `<a class="btn lab small" href="${RELEASES}/${l.build.release}/${f.file}" rel="noopener">${dlIcon}${L(f.label)} <span class="exp-size">${f.size}</span></a>`).join('')}</div>`
+      : `<span class="nobuild">${t('nobuild')}</span>`}${plats()}</div>
   </article>`;
 }
 
