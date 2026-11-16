@@ -519,10 +519,10 @@ const APPS = [
     id: 'converty', name: 'Converty', hue: 212, glyph: 'conv',
     kind: { ru: 'Файлы', en: 'Files' },
     tag: { ru: 'Конвертер картинок, видео, аудио и PDF прямо на компьютере', en: 'Convert images, video, audio and PDF right on your PC' },
-    platforms: ['win'], ver: '2.2.0', date: '2026-11-14', release: 'converty-v2.2.0', shotSize: [976, 701],
+    platforms: ['win'], ver: '2.2.1', date: '2026-11-16', release: 'converty-v2.2.1', shotSize: [976, 701],
     files: [
-      { kind: { ru: 'Установщик', en: 'Installer' }, file: 'Converty-Setup-2.2.0.exe', size: '71 MB' },
-      { kind: { ru: 'Портативная версия', en: 'Portable' }, file: 'Converty-Portable-2.2.0.zip', size: '85 MB' }
+      { kind: { ru: 'Установщик', en: 'Installer' }, file: 'Converty-Setup-2.2.1.exe', size: '71 MB' },
+      { kind: { ru: 'Портативная версия', en: 'Portable' }, file: 'Converty-Portable-2.2.1.zip', size: '85 MB' }
     ],
     desc: {
       ru: 'Перетаскиваешь файлы или целую папку, выбираешь формат и жмёшь «Конвертировать». Всё происходит на твоём компьютере: файлы никуда не загружаются, аккаунтов и телеметрии нет, оригиналы не меняются. Внутри есть редакторы: обрезка и водяной знак для картинок, точная нарезка видео и звука, сборка и разбор PDF.',
@@ -547,6 +547,7 @@ const APPS = [
       [{ ru: 'Лицензия', en: 'License' }, 'MIT']
     ],
     log: [
+      { v: '2.2.1', d: '2026-11-16', items: { ru: ['Вертикальные пропорции для фото на документы: 3:4 и 7:9, а также 2:3 и 3:2'], en: ['Portrait crop ratios for ID photos: 3:4 and 7:9, plus 2:3 and 3:2'] } },
       { v: '2.2.0', d: '2026-11-14', items: { ru: ['FFmpeg и yt-dlp скачиваются сами при первом запуске', 'Установщик стал втрое легче'], en: ['FFmpeg and yt-dlp download automatically on first launch', 'The installer is three times smaller'] } },
       { v: '2.1.0', d: '2026-11-14', items: { ru: ['Исправление ошибки'], en: ['Bug fix'] } },
       { v: '2.0.0', d: '2026-11-10', items: { ru: ['Интерфейс переписан на Qt', 'Визуальные редакторы картинок, видео, аудио и PDF', 'Чёткий интерфейс на экранах с высоким DPI'], en: ['Interface rebuilt on Qt', 'Visual editors for images, video, audio and PDF', 'Sharp UI on high-DPI screens'] } }
