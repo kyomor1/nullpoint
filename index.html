@@ -675,26 +675,26 @@ const APPS = [
 /* Лаборатория: эксперименты. stage — индекс в t('stages'): 0 идея, 1 прототип, 2 альфа, 3 бета */
 const LAB = [
   {
-    id: '404cord', name: '404Cord', hue: 84, glyph: 'chat', stage: 2, updated: '2026-11-15',
+    id: '404cord', name: '404Cord', hue: 84, glyph: 'chat', stage: 2, updated: '2026-11-16',
     tag: { ru: 'Чат и голос для своей компании на собственном сервере', en: 'Chat and voice for your friends, on a server you run yourself' },
     can: {
-      ru: ['Текстовые и голосовые каналы', 'Демонстрация одного или двух экранов со звуком', 'Файлы, голосовые сообщения, реакции и ответы', 'Редактирование и закрепление сообщений', 'Профили со значками и рамками аватара', 'Свой сервер на твоём ПК: вход по коду приглашения'],
-      en: ['Text and voice channels', 'Share one or two screens with sound', 'Files, voice messages, reactions and replies', 'Edit and pin messages', 'Profiles with badges and avatar frames', 'Your own server on your PC, joined with an invite code']
+      ru: ['Текстовые и голосовые каналы', 'Демонстрация одного или двух экранов со звуком', 'Файлы, голосовые сообщения, реакции и ответы', 'Редактирование и закрепление сообщений', 'Шумодав для микрофона', 'Профили со значками и анимированными рамками', 'Свой сервер на твоём ПК: вход по коду приглашения'],
+      en: ['Text and voice channels', 'Share one or two screens with sound', 'Files, voice messages, reactions and replies', 'Edit and pin messages', 'Noise suppression for the mic', 'Profiles with badges and animated frames', 'Your own server on your PC, joined with an invite code']
     },
     todo: {
       ru: ['Проверка с друзьями в реальных звонках', 'Простой запуск сервера без командной строки', 'Подпись программы, чтобы не ругался SmartScreen'],
       en: ['Testing with friends in real calls', 'Starting the server without the command line', 'Code signing so SmartScreen stops complaining']
     },
     note: {
-      ru: 'Версия 1.1.1: значки в профиле, рамки аватара и корона владельца сервера. Программе нужен сервер: его запускает кто-то один из компании, архив сервера лежит рядом.',
-      en: 'Version 1.1.1: profile badges, avatar frames and a crown for the server owner. The app needs a server: one person in your group runs it, and the server archive is right next to the app.'
+      ru: 'Версия 1.1.2: сильный шумодав для микрофона, кликабельные ссылки, меню громкости на демонстрации экрана и анимированные рамки аватара. Программе нужен сервер: его запускает кто-то один из компании, архив сервера лежит рядом.',
+      en: 'Version 1.1.2: strong noise suppression for the mic, clickable links, a volume menu on screen shares and animated avatar frames. The app needs a server: one person in your group runs it, and the server archive is right next to the app.'
     },
     build: {
-      release: '404cord-v1.1.1', ver: '1.1.1',
+      release: '404cord-v1.1.2', ver: '1.1.2',
       files: [
-        { file: '404Cord-1.1.1-Windows.zip', label: { ru: 'Программа', en: 'App' }, size: '107 MB' },
-        { file: '404Cord-Server-1.1.1.zip', label: { ru: 'Сервер', en: 'Server' }, size: '0.3 MB' },
-        { file: '404Cord-1.1.1-Friend.7z', label: { ru: 'Для друзей', en: 'For friends' }, size: '107 MB', lock: true }
+        { file: '404Cord-1.1.2-Windows.zip', label: { ru: 'Программа', en: 'App' }, size: '107 MB' },
+        { file: '404Cord-Server-1.1.2.zip', label: { ru: 'Сервер', en: 'Server' }, size: '0.3 MB' },
+        { file: '404Cord-1.1.2-Friend.7z', label: { ru: 'Для друзей', en: 'For friends' }, size: '107 MB', lock: true }
       ],
       lockNote: { ru: 'Комплект «Для друзей» уже настроен на мой сервер и закрыт паролем. Пароль спрашивай у меня, открывается в 7-Zip или WinRAR.', en: 'The “For friends” kit is set up for my own server and locked with a password. Ask me for it; open it with 7-Zip or WinRAR.' }
     }
