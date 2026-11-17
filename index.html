@@ -633,18 +633,18 @@ const APPS = [
     id: 'clipy', name: 'Clipy', hue: 262, glyph: 'clip',
     kind: { ru: 'Утилиты', en: 'Utilities' },
     tag: { ru: 'История буфера обмена: всё, что ты копировал, под рукой', en: 'Clipboard history that keeps everything you copy' },
-    platforms: ['win'], ver: '0.7.0', date: '2026-11-15', release: 'clipy-v0.7.0', shotSize: [960, 760],
+    platforms: ['win'], ver: '0.8.0', date: '2026-11-17', release: 'clipy-v0.8.0', shotSize: [960, 760],
     files: [
-      { kind: { ru: 'Установщик', en: 'Installer' }, file: 'Clipy-0.7.0-setup.exe', size: '63 MB' },
-      { kind: { ru: 'Портативная версия', en: 'Portable' }, file: 'Clipy-0.7.0-win-x64.zip', size: '90 MB' }
+      { kind: { ru: 'Установщик', en: 'Installer' }, file: 'Clipy-0.8.0-setup.exe', size: '63 MB' },
+      { kind: { ru: 'Портативная версия', en: 'Portable' }, file: 'Clipy-0.8.0-win-x64.zip', size: '90 MB' }
     ],
     desc: {
       ru: 'Clipy запоминает всё, что ты копируешь: текст, форматированный текст, картинки, файлы и папки. Компактное тёмное окно вызывается поверх любой программы. Находишь нужную запись, жмёшь Enter, и она вставляется туда, откуда ты Clipy вызвал. История хранится только на твоём компьютере, в интернет ничего не уходит.',
       en: 'Clipy remembers everything you copy: plain and rich text, images, files and folders. A compact dark window pops up over any app. Find the clip you need, press Enter and it is pasted right where you called Clipy from. History stays on your PC and nothing is sent online.'
     },
     features: {
-      ru: ['Текст, RTF, HTML, картинки, файлы и папки', 'Поиск по тексту, именам и путям файлов', 'Избранное и закреплённые записи', 'Шаблоны с папками отдельно от истории', 'Вставка в окно, из которого вызвал Clipy', 'Предпросмотр записи рядом с окном', 'Лимиты хранения, резервная копия базы', 'Работа из трея и автозапуск с Windows'],
-      en: ['Text, RTF, HTML, images, files and folders', 'Search by text, file names and paths', 'Favourites and pinned clips', 'Templates with folders, separate from history', 'Pastes into the window you called it from', 'Clip preview next to the window', 'Storage limits and database backup', 'Runs from the tray and starts with Windows']
+      ru: ['Текст, RTF, HTML, картинки, файлы и папки', 'Поиск по тексту, именам и путям файлов', 'Избранное и закреплённые записи', 'Шаблоны с папками отдельно от истории', 'Вставка в окно, из которого вызвал Clipy', 'Предпросмотр записи рядом с окном', 'Лимиты хранения, резервная копия базы', 'Перенос истории из Clipdiary', 'Работа из трея и автозапуск с Windows'],
+      en: ['Text, RTF, HTML, images, files and folders', 'Search by text, file names and paths', 'Favourites and pinned clips', 'Templates with folders, separate from history', 'Pastes into the window you called it from', 'Clip preview next to the window', 'Storage limits and database backup', 'Import your history from Clipdiary', 'Runs from the tray and starts with Windows']
     },
     keys: [
       [['Ctrl', 'Shift', 'D'], null, { ru: 'Открыть историю', en: 'Open history' }],
@@ -661,6 +661,7 @@ const APPS = [
       [{ ru: 'Зависимости', en: 'Dependencies' }, { ru: '.NET и Windows App SDK уже в комплекте', en: '.NET and Windows App SDK included' }]
     ],
     log: [
+      { v: '0.8.0', d: '2026-11-17', items: { ru: ['Перенос истории из Clipdiary: кнопка в настройках, раздел «Безопасность и данные». Текст, HTML, RTF, картинки и файлы переносятся с настоящими датами, отмеченные звёздочкой попадают в «Избранное»', 'Перед импортом Clipy делает резервную копию своей базы, а база Clipdiary не меняется, его даже не нужно закрывать', 'Импорт показывает прогресс, его можно остановить и запустить снова без повторов'], en: ['Import your history from Clipdiary: a button in Settings, under Security and data. Text, HTML, RTF, images and files come over with their real dates, and starred entries go to Favorites', 'Clipy backs up its own database before importing, and the Clipdiary database is left untouched, so there is no need to close it', 'The import shows its progress and can be stopped and started again without duplicates'] } },
       { v: '0.7.0', d: '2026-11-15', items: { ru: ['Первый публичный выпуск: установщик для текущего пользователя без прав администратора и портативная версия в архиве', 'Обновлённый внешний вид: меню в строке заголовка, переключатель «История / Шаблоны / Избранное», значки форматов у записей и новая иконка', 'Окно настроек оформлено в том же стиле, что и главное окно', 'Автозапуск вместе с Windows: Clipy стартует скрытым в трее', 'Щелчок по пустому месту снимает выделение и скрывает предпросмотр; данные переехали в собственную папку Clipy с сохранением истории'], en: ['First public release: a per-user installer that needs no administrator rights, plus a portable version in an archive', 'Refreshed look: menu in the title bar, a History / Templates / Favorites switcher, format icons on entries and a new app icon', 'The settings window now matches the main window\'s style', 'Start with Windows: Clipy launches hidden in the tray', 'Clicking empty space clears the selection and hides the preview; data moved to Clipy\'s own folder with history preserved'] } },
       { v: '0.6.1.5', d: '2026-10-19', items: { ru: ['В заголовке окна настроек показывается номер версии, чтобы было видно, какая сборка запущена'], en: ['The settings window title shows the version number, so you can see which build is running'] } },
       { v: '0.6.1.4', d: '2026-10-19', items: { ru: ['Выбор акцентного цвета упрощён до шести готовых вариантов', 'Ранее выбранный цвет сохраняется после обновления'], en: ['Accent color choice simplified to six ready-made presets', 'A previously chosen color is kept after updating'] } },
