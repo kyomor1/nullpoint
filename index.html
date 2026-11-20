@@ -2,7 +2,7 @@
 <html lang="ru">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="Приложения Kyo Mori для Windows: Converty, FPS Scope и D-Shift.">
+<meta name="description" content="Приложения Kyo Mori для Windows: Converty, FPS Scope, D-Shift, Clipy и AudioHub.">
 <title>Nullpoint</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -512,7 +512,8 @@ const GLYPH = {
   fps: '<path d="M3 17h3l2.5-7 3 9 3-13 2.5 8 1-3h3"/>',
   conv: '<path d="M4 8h13l-3.5-3.5M20 16H7l3.5 3.5"/>',
   clip: '<rect x="5.5" y="4.5" width="13" height="16.5" rx="2"/><path d="M9 4.5V3h6v1.5M9 10h6M9 13.5h6M9 17h3.5"/>',
-  chat: '<path d="M4 6.5A2.5 2.5 0 0 1 6.5 4h11A2.5 2.5 0 0 1 20 6.5v7a2.5 2.5 0 0 1-2.5 2.5H10l-4.5 4v-4h0A1.5 1.5 0 0 1 4 14.5z"/><path d="M8.5 9h7M8.5 12h4.5"/>'
+  chat: '<path d="M4 6.5A2.5 2.5 0 0 1 6.5 4h11A2.5 2.5 0 0 1 20 6.5v7a2.5 2.5 0 0 1-2.5 2.5H10l-4.5 4v-4h0A1.5 1.5 0 0 1 4 14.5z"/><path d="M8.5 9h7M8.5 12h4.5"/>',
+  wave: '<path d="M4 10v4M8 7v10M12 4v16M16 8v8M20 11v2"/>'
 };
 
 /* Приложения. Тексты, которые стоит проверить, помечены в ответе */
@@ -669,6 +670,35 @@ const APPS = [
       { v: '0.6.1.2', d: '2026-10-18', items: { ru: ['Окно настроек стало компактнее', 'Настройки сохраняются автоматически, кнопки «Применить» и «Отмена» больше не нужны'], en: ['A more compact settings window', 'Settings are saved automatically; no more Apply and Cancel buttons'] } },
       { v: '0.6.1.1', d: '2026-10-18', items: { ru: ['Исправлено немедленное закрытие программы при запуске', 'Скруглённые углы главного окна', 'Список открывается на самых новых записях при любом порядке сортировки', 'Надёжный выход из программы и повторный запуск'], en: ['Fixed the app closing immediately on launch', 'Rounded corners on the main window', 'The list opens at the newest entries in either sort order', 'Reliable exit and relaunch'] } },
       { v: '0.6.1', d: '2026-10-18', items: { ru: ['Первая сборка Clipy для запуска без среды разработки', 'Работа из системного трея: закрытие окна сворачивает Clipy, а история продолжает сохраняться', 'Тёмное меню значка в трее'], en: ['First Clipy build that runs without development tools', 'Runs from the system tray: closing the window keeps Clipy running and recording history', 'Dark tray icon menu'] } }
+    ]
+  },
+  {
+    id: 'audiohub', name: 'AudioHub', hue: 38, glyph: 'wave',
+    kind: { ru: 'Звук', en: 'Audio' },
+    tag: { ru: 'Голос громче и чище сразу для Discord, Telegram и игр', en: 'A louder, cleaner voice in Discord, Telegram and games at once' },
+    platforms: ['win'], ver: '0.1.0', date: '2026-11-20', release: 'audiohub-v0.1.0', shotSize: [980, 720],
+    files: [
+      { kind: { ru: 'Установщик', en: 'Installer' }, file: 'AudioHub-Setup-0.1.0-x64.exe', size: '53 MB' },
+      { kind: { ru: 'Портативная версия', en: 'Portable' }, file: 'AudioHub-0.1.0-win-x64.zip', size: '72 MB' }
+    ],
+    desc: {
+      ru: 'Если собеседники тебя плохо слышат, а системный ползунок микрофона поднять нельзя из-за шума, AudioHub решает это для всех программ сразу. Он берёт звук с микрофона, убирает шум, делает голос громче и ровнее и отдаёт его в виртуальный кабель. В Discord, Telegram, TeamSpeak или игре ты просто выбираешь этот кабель как микрофон. Настройки Windows при этом не меняются, а «Сбросить всё» возвращает всё как было.',
+      en: 'If people struggle to hear you and you cannot raise the system mic slider because of noise, AudioHub fixes it for every app at once. It takes your mic, removes noise, makes your voice louder and more even, and sends it to a virtual cable. In Discord, Telegram, TeamSpeak or a game you just pick that cable as your microphone. Windows settings stay untouched, and Reset all puts everything back.'
+    },
+    features: {
+      ru: ['Шумоподавление RNNoise', 'Тишина в паузах с настраиваемым порогом', 'Усиление голоса до +30 дБ', 'Выравнивание громкости и защита от перегруза', 'Индикаторы «с микрофона» и «слышат другие»', 'Послушать себя в наушниках', 'Трансляция: зрителям громко, тебе тихо', 'Мастер настройки, трей и автозапуск'],
+      en: ['RNNoise noise suppression', 'Silence between phrases with an adjustable threshold', 'Voice boost up to +30 dB', 'Volume leveling and overload protection', 'Meters for your mic and what others hear', 'Listen to yourself in headphones', 'Streaming: loud for viewers, quiet for you', 'Setup wizard, tray and autostart']
+    },
+    images: ['screenshots/audiohub-1.png', 'screenshots/audiohub-2.png', 'screenshots/audiohub-3.png'],
+    shots: { ru: ['Обработка голоса', 'Трансляция', 'Мастер настройки'], en: ['Voice processing', 'Streaming', 'Setup wizard'] },
+    req: [
+      ['Windows', { ru: '10 или 11, x64', en: '10 or 11, x64' }],
+      [{ ru: 'Кабель', en: 'Cable' }, { ru: 'бесплатный <a href="https://vb-audio.com/Cable/" rel="noopener">VB-Cable</a>', en: 'free <a href="https://vb-audio.com/Cable/" rel="noopener">VB-Cable</a>' }],
+      [{ ru: 'Права', en: 'Rights' }, { ru: 'администратор не нужен', en: 'no admin needed' }],
+      [{ ru: 'Интернет', en: 'Internet' }, { ru: 'не нужен', en: 'not needed' }]
+    ],
+    log: [
+      { v: '0.1.0', d: '2026-11-20', items: { ru: ['Первый выпуск: обработка микрофона с шумоподавлением, тишиной в паузах, усилением, выравниванием и защитой от перегруза', 'Индикаторы уровня, «Послушать себя» и проверка связи', 'Вкладка «Трансляция»: зрителям звук игры громко, а в наушниках — как удобно', 'Мастер первой настройки, русский и английский интерфейс, трей и автозапуск', '«Сбросить всё» возвращает громкости как было, даже после аварийного закрытия'], en: ['First release: mic processing with noise suppression, silence between phrases, boost, leveling and overload protection', 'Level meters, Listen to yourself and a connection test', 'Streaming tab: game audio stays loud for viewers while your headphones stay comfortable', 'Setup wizard, Russian and English interface, tray and autostart', 'Reset all puts volumes back as they were, even after a crash'] } }
     ]
   }
 ];
