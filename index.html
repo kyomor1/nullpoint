@@ -2,7 +2,7 @@
 <html lang="ru">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="Приложения Kyo Mori для Windows: Converty, FPS Scope, D-Shift, Clipy, AudioHub и Docy.">
+<meta name="description" content="Приложения Kyo Mori для Windows: Converty, FPS Scope, D-Shift, Clipy, AudioHub, Docy и Brighty.">
 <title>Nullpoint</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -514,7 +514,8 @@ const GLYPH = {
   clip: '<rect x="5.5" y="4.5" width="13" height="16.5" rx="2"/><path d="M9 4.5V3h6v1.5M9 10h6M9 13.5h6M9 17h3.5"/>',
   chat: '<path d="M4 6.5A2.5 2.5 0 0 1 6.5 4h11A2.5 2.5 0 0 1 20 6.5v7a2.5 2.5 0 0 1-2.5 2.5H10l-4.5 4v-4h0A1.5 1.5 0 0 1 4 14.5z"/><path d="M8.5 9h7M8.5 12h4.5"/>',
   wave: '<path d="M4 10v4M8 7v10M12 4v16M16 8v8M20 11v2"/>',
-  doc: '<path d="M6.5 3h8l4 4v13a1 1 0 0 1-1 1h-11a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/><path d="M14.5 3v4h4M8.5 11.5h7M8.5 14.5h7M8.5 17.5h4.5"/>'
+  doc: '<path d="M6.5 3h8l4 4v13a1 1 0 0 1-1 1h-11a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/><path d="M14.5 3v4h4M8.5 11.5h7M8.5 14.5h7M8.5 17.5h4.5"/>',
+  sun: '<circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4"/>'
 };
 
 /* Приложения. Тексты, которые стоит проверить, помечены в ответе */
@@ -706,10 +707,10 @@ const APPS = [
     id: 'docy', name: 'Docy', hue: 205, glyph: 'doc',
     kind: { ru: 'Документы', en: 'Documents' },
     tag: { ru: 'Одна читалка для PDF, Word, книг и текстов', en: 'One reader for PDF, Word, books and text' },
-    platforms: ['win'], ver: '1.0.0', date: '2026-11-20', release: 'docy-v1.0.0', shotSize: [1400, 1040],
+    platforms: ['win'], ver: '1.0.1', date: '2026-11-21', release: 'docy-v1.0.1', shotSize: [1400, 1040],
     files: [
-      { kind: { ru: 'Установщик', en: 'Installer' }, file: 'Docy-1.0.0-setup-win-x64.exe', size: '51 MB' },
-      { kind: { ru: 'Портативная версия', en: 'Portable' }, file: 'Docy-1.0.0-portable-win-x64.zip', size: '70 MB' }
+      { kind: { ru: 'Установщик', en: 'Installer' }, file: 'Docy-1.0.1-setup-win-x64.exe', size: '51 MB' },
+      { kind: { ru: 'Портативная версия', en: 'Portable' }, file: 'Docy-1.0.1-portable-win-x64.zip', size: '70 MB' }
     ],
     desc: {
       ru: 'Docy открывает PDF, Word, RTF, ODT, EPUB, FB2, Markdown, TXT, XPS и комиксы CBZ во вкладках одного окна. В PDF можно делать пометки, переставлять и удалять страницы, заполнять формы и ставить подпись, а сканы распознаются встроенным распознавателем Windows. Word, RTF, TXT и Markdown можно править. Без рекламы и телеметрии, работает без интернета.',
@@ -728,7 +729,37 @@ const APPS = [
       [{ ru: 'Интернет', en: 'Internet' }, { ru: 'не нужен', en: 'not needed' }]
     ],
     log: [
+      { v: '1.0.1', d: '2026-11-21', items: { ru: ['Миниатюра страницы больше не становится белой после пометок маркером, подчёркиванием или заметкой, в том числе после отмены'], en: ['The page thumbnail no longer turns blank after highlighting, underlining or adding a note, including after undo'] } },
       { v: '1.0.0', d: '2026-11-20', items: { ru: ['Первый выпуск: PDF, Word, RTF, ODT, EPUB, FB2, Markdown, TXT, XPS и CBZ во вкладках одного окна', 'PDF: пометки, работа со страницами, формы, подпись и распознавание сканов', 'Экспорт любого документа в PDF, страниц в PNG и JPG, текста в TXT', 'Правка Word, RTF, TXT и Markdown', 'Русский и английский интерфейс, установщик и портативная версия'], en: ['First release: PDF, Word, RTF, ODT, EPUB, FB2, Markdown, TXT, XPS and CBZ in tabs of one window', 'PDF: annotations, page tools, forms, signatures and OCR for scans', 'Export any document to PDF, pages to PNG and JPG, text to TXT', 'Editing for Word, RTF, TXT and Markdown', 'Russian and English interface, installer and portable version'] } }
+    ]
+  },
+  {
+    id: 'brighty', name: 'Brighty', hue: 45, glyph: 'sun',
+    kind: { ru: 'Мониторы', en: 'Displays' },
+    tag: { ru: 'Яркость одного или двух мониторов прямо из трея', en: 'Brightness for one or two monitors right from the tray' },
+    platforms: ['win'], ver: '1.0.0', date: '2026-11-21', release: 'brighty-v1.0.0', shotSize: [692, 596],
+    files: [
+      { kind: { ru: 'Установщик', en: 'Installer' }, file: 'Brighty-1.0.0-setup-win-x64.exe', size: '43 MB' },
+      { kind: { ru: 'Портативная версия', en: 'Portable' }, file: 'Brighty-1.0.0-portable-win-x64.zip', size: '58 MB' }
+    ],
+    desc: {
+      ru: 'Brighty — маленький значок-солнце в трее. Щёлкаешь по нему, и открывается панель с ползунком яркости для каждого подключённого монитора. Яркость меняется сразу, пока двигаешь ползунок. Внешние мониторы регулируются по DDC/CI, экран ноутбука через Windows. Без рекламы и телеметрии, работает без интернета и без прав администратора.',
+      en: 'Brighty is a small sun icon in the tray. Click it and a panel opens with a brightness slider for every connected monitor. Brightness changes live as you drag. External monitors are controlled over DDC/CI and a laptop screen through Windows. No ads or telemetry, works offline and without admin rights.'
+    },
+    features: {
+      ru: ['Ползунок на каждый монитор с его названием', 'Мониторы определяются при каждом открытии', 'Яркость меняется сразу, колесо и стрелки тоже работают', 'Внешние мониторы по DDC/CI, экран ноутбука через Windows', 'Неподдерживаемый монитор показан с пометкой', 'Закрывается кликом мимо или по Esc', 'Запуск вместе с Windows', 'Русский и английский интерфейс'],
+      en: ['A slider for each monitor with its name', 'Monitors are detected every time the panel opens', 'Live brightness; mouse wheel and arrow keys work too', 'External monitors over DDC/CI, laptop screen through Windows', 'Unsupported monitors are marked as such', 'Closes on an outside click or Esc', 'Start with Windows', 'Russian and English interface']
+    },
+    images: ['screenshots/brighty-1.png', 'screenshots/brighty-2.png', 'screenshots/brighty-3.png'],
+    shots: { ru: ['Два монитора', 'Ноутбук и два монитора', 'Один монитор'], en: ['Two monitors', 'Laptop and two monitors', 'One monitor'] },
+    req: [
+      ['Windows', { ru: '10 (1809) или 11, x64', en: '10 (1809) or 11, x64' }],
+      [{ ru: 'Монитор', en: 'Monitor' }, { ru: 'с включённым DDC/CI', en: 'with DDC/CI turned on' }],
+      [{ ru: 'Права', en: 'Rights' }, { ru: 'администратор не нужен', en: 'no admin needed' }],
+      [{ ru: 'Интернет', en: 'Internet' }, { ru: 'не нужен', en: 'not needed' }]
+    ],
+    log: [
+      { v: '1.0.0', d: '2026-11-21', items: { ru: ['Первый выпуск: значок в трее и панель с ползунком яркости для каждого монитора', 'Внешние мониторы по DDC/CI, экран ноутбука через Windows', 'Запуск вместе с Windows, русский и английский интерфейс, установщик и портативная версия'], en: ['First release: a tray icon and a panel with a brightness slider for each monitor', 'External monitors over DDC/CI, laptop screen through Windows', 'Start with Windows, Russian and English interface, installer and portable version'] } }
     ]
   }
 ];
