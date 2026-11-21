@@ -2,7 +2,7 @@
 <html lang="ru">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="Приложения Kyo Mori для Windows: Converty, FPS Scope, D-Shift, Clipy и AudioHub.">
+<meta name="description" content="Приложения Kyo Mori для Windows: Converty, FPS Scope, D-Shift, Clipy, AudioHub и Docy.">
 <title>Nullpoint</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -513,7 +513,8 @@ const GLYPH = {
   conv: '<path d="M4 8h13l-3.5-3.5M20 16H7l3.5 3.5"/>',
   clip: '<rect x="5.5" y="4.5" width="13" height="16.5" rx="2"/><path d="M9 4.5V3h6v1.5M9 10h6M9 13.5h6M9 17h3.5"/>',
   chat: '<path d="M4 6.5A2.5 2.5 0 0 1 6.5 4h11A2.5 2.5 0 0 1 20 6.5v7a2.5 2.5 0 0 1-2.5 2.5H10l-4.5 4v-4h0A1.5 1.5 0 0 1 4 14.5z"/><path d="M8.5 9h7M8.5 12h4.5"/>',
-  wave: '<path d="M4 10v4M8 7v10M12 4v16M16 8v8M20 11v2"/>'
+  wave: '<path d="M4 10v4M8 7v10M12 4v16M16 8v8M20 11v2"/>',
+  doc: '<path d="M6.5 3h8l4 4v13a1 1 0 0 1-1 1h-11a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/><path d="M14.5 3v4h4M8.5 11.5h7M8.5 14.5h7M8.5 17.5h4.5"/>'
 };
 
 /* Приложения. Тексты, которые стоит проверить, помечены в ответе */
@@ -699,6 +700,35 @@ const APPS = [
     ],
     log: [
       { v: '0.1.0', d: '2026-11-20', items: { ru: ['Первый выпуск: обработка микрофона с шумоподавлением, тишиной в паузах, усилением, выравниванием и защитой от перегруза', 'Индикаторы уровня, «Послушать себя» и проверка связи', 'Вкладка «Трансляция»: зрителям звук игры громко, а в наушниках — как удобно', 'Мастер первой настройки, русский и английский интерфейс, трей и автозапуск', '«Сбросить всё» возвращает громкости как было, даже после аварийного закрытия'], en: ['First release: mic processing with noise suppression, silence between phrases, boost, leveling and overload protection', 'Level meters, Listen to yourself and a connection test', 'Streaming tab: game audio stays loud for viewers while your headphones stay comfortable', 'Setup wizard, Russian and English interface, tray and autostart', 'Reset all puts volumes back as they were, even after a crash'] } }
+    ]
+  },
+  {
+    id: 'docy', name: 'Docy', hue: 205, glyph: 'doc',
+    kind: { ru: 'Документы', en: 'Documents' },
+    tag: { ru: 'Одна читалка для PDF, Word, книг и текстов', en: 'One reader for PDF, Word, books and text' },
+    platforms: ['win'], ver: '1.0.0', date: '2026-11-20', release: 'docy-v1.0.0', shotSize: [1400, 1040],
+    files: [
+      { kind: { ru: 'Установщик', en: 'Installer' }, file: 'Docy-1.0.0-setup-win-x64.exe', size: '51 MB' },
+      { kind: { ru: 'Портативная версия', en: 'Portable' }, file: 'Docy-1.0.0-portable-win-x64.zip', size: '70 MB' }
+    ],
+    desc: {
+      ru: 'Docy открывает PDF, Word, RTF, ODT, EPUB, FB2, Markdown, TXT, XPS и комиксы CBZ во вкладках одного окна. В PDF можно делать пометки, переставлять и удалять страницы, заполнять формы и ставить подпись, а сканы распознаются встроенным распознавателем Windows. Word, RTF, TXT и Markdown можно править. Без рекламы и телеметрии, работает без интернета.',
+      en: 'Docy opens PDF, Word, RTF, ODT, EPUB, FB2, Markdown, TXT, XPS and CBZ comics in tabs of one window. In PDFs you can annotate, reorder and delete pages, fill in forms and sign, and scans are recognized with the built-in Windows OCR. Word, RTF, TXT and Markdown files can be edited. No ads or telemetry, works offline.'
+    },
+    features: {
+      ru: ['PDF, DOCX и DOC, RTF, ODT, EPUB, FB2, Markdown, TXT, XPS, CBZ', 'Вкладки, оглавление, миниатюры и поиск', 'Возврат к месту, где остановились', 'Ночные и сепия-страницы, полноэкранный режим', 'Пометки в PDF: маркер, заметки, рисование', 'Страницы PDF: поворот, удаление, перестановка, разделение', 'Формы и подпись в PDF', 'Распознавание сканов офлайн', 'Экспорт в PDF, PNG, JPG и TXT', 'Правка Word, RTF, TXT и Markdown'],
+      en: ['PDF, DOCX and DOC, RTF, ODT, EPUB, FB2, Markdown, TXT, XPS, CBZ', 'Tabs, table of contents, thumbnails and search', 'Reopens where you left off', 'Night and sepia pages, full screen', 'PDF annotations: highlighter, notes, drawing', 'PDF pages: rotate, delete, reorder, split', 'PDF forms and signatures', 'Offline OCR for scans', 'Export to PDF, PNG, JPG and TXT', 'Editing for Word, RTF, TXT and Markdown']
+    },
+    images: ['screenshots/docy-1.png', 'screenshots/docy-2.png', 'screenshots/docy-3.png'],
+    shots: { ru: ['PDF с миниатюрами', 'Markdown', 'Пометки в PDF'], en: ['PDF with thumbnails', 'Markdown', 'PDF annotations'] },
+    req: [
+      ['Windows', { ru: '10 (1809) или 11, x64', en: '10 (1809) or 11, x64' }],
+      ['WebView2', { ru: 'уже есть в обновлённой Windows', en: 'already in up-to-date Windows' }],
+      [{ ru: 'Права', en: 'Rights' }, { ru: 'администратор не нужен', en: 'no admin needed' }],
+      [{ ru: 'Интернет', en: 'Internet' }, { ru: 'не нужен', en: 'not needed' }]
+    ],
+    log: [
+      { v: '1.0.0', d: '2026-11-20', items: { ru: ['Первый выпуск: PDF, Word, RTF, ODT, EPUB, FB2, Markdown, TXT, XPS и CBZ во вкладках одного окна', 'PDF: пометки, работа со страницами, формы, подпись и распознавание сканов', 'Экспорт любого документа в PDF, страниц в PNG и JPG, текста в TXT', 'Правка Word, RTF, TXT и Markdown', 'Русский и английский интерфейс, установщик и портативная версия'], en: ['First release: PDF, Word, RTF, ODT, EPUB, FB2, Markdown, TXT, XPS and CBZ in tabs of one window', 'PDF: annotations, page tools, forms, signatures and OCR for scans', 'Export any document to PDF, pages to PNG and JPG, text to TXT', 'Editing for Word, RTF, TXT and Markdown', 'Russian and English interface, installer and portable version'] } }
     ]
   }
 ];
