@@ -54,7 +54,7 @@ module.exports = async function handler(req, res) {
   const app = oneLine(clean(body.app, 60)) || 'Не указано';
   const kind = KINDS[body.kind] || KINDS.other;
   const email = oneLine(clean(body.email, 200));
-  const lang = body.lang === 'en' ? 'en' : 'ru';
+  const lang = body.lang === 'en' || body.lang === 'uk' ? body.lang : 'ru';
 
   if (message.length < 10) return json(res, 400, { error: 'short' });
   if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) return json(res, 400, { error: 'email' });
