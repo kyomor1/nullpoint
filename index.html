@@ -744,10 +744,10 @@ const APPS = [
     id: 'docy', name: 'Docy', hue: 205, glyph: 'doc',
     kind: { ru: 'Документы', en: 'Documents' },
     tag: { ru: 'Одна читалка для PDF, Word, Excel, книг и текстов', en: 'One reader for PDF, Word, Excel, books and text' },
-    platforms: ['win'], ver: '1.2.0', date: '2026-11-23', release: 'docy-v1.2.0', shotSize: [1400, 1040],
+    platforms: ['win'], ver: '1.2.1', date: '2026-11-23', release: 'docy-v1.2.1', shotSize: [1400, 1040],
     files: [
-      { kind: { ru: 'Установщик', en: 'Installer' }, file: 'Docy-1.2.0-setup-win-x64.exe', size: '47 MB' },
-      { kind: { ru: 'Портативная версия', en: 'Portable' }, file: 'Docy-1.2.0-portable-win-x64.zip', size: '62 MB' }
+      { kind: { ru: 'Установщик', en: 'Installer' }, file: 'Docy-1.2.1-setup-win-x64.exe', size: '47 MB' },
+      { kind: { ru: 'Портативная версия', en: 'Portable' }, file: 'Docy-1.2.1-portable-win-x64.zip', size: '62 MB' }
     ],
     desc: {
       ru: 'Docy открывает PDF, Word, Excel, RTF, ODT, EPUB, FB2, Markdown, TXT, XPS и комиксы CBZ во вкладках одного окна. В PDF можно делать пометки, переставлять и удалять страницы, заполнять формы и ставить подпись, а сканы распознаются встроенным распознавателем Windows. Word, RTF, TXT и Markdown можно править. Без рекламы и телеметрии, работает без интернета.',
@@ -766,6 +766,7 @@ const APPS = [
       [{ ru: 'Интернет', en: 'Internet' }, { ru: 'не нужен', en: 'not needed' }]
     ],
     log: [
+      { v: '1.2.1', d: '2026-11-23', items: { ru: ['Таблицы Excel открываются в том масштабе, в котором их сохранили, уменьшать можно до 10%', 'Масштаб таблицы больше не меняет размер вкладок с листами'], uk: ['Таблиці Excel відкриваються в тому масштабі, у якому їх збережено, зменшувати можна до 10%', 'Масштаб таблиці більше не змінює розмір вкладок з аркушами'], en: ['Excel sheets open at the zoom level they were saved with, and you can zoom out to 10%', 'Zooming a sheet no longer resizes the sheet tabs'] } },
       { v: '1.2.0', d: '2026-11-23', items: { ru: ['Украинский язык: интерфейс, сообщения и установщик; язык берётся из Windows и меняется в меню «⋯»', 'Проверка орфографии узнаёт украинский текст, сканы распознаются на украинском, если он установлен в Windows'], uk: ['Українська мова: інтерфейс, повідомлення й інсталятор; мова береться з Windows і змінюється в меню «⋯»', 'Перевірка орфографії розпізнає український текст, скани розпізнаються українською, якщо її встановлено у Windows'], en: ['Ukrainian language: interface, messages and installer; follows Windows and can be changed in the “⋯” menu', 'Spell checking detects Ukrainian text, and scans are recognized in Ukrainian if it is installed in Windows'] } },
       { v: '1.1.0', d: '2026-11-23', items: { ru: ['Таблицы Excel: XLSX, XLSM и старый XLS. Листы вкладками, поиск по всем листам, печать и экспорт; только просмотр'], uk: ['Таблиці Excel: XLSX, XLSM і старий XLS. Аркуші вкладками, пошук по всіх аркушах, друк та експорт; лише перегляд'], en: ['Excel spreadsheets: XLSX, XLSM and legacy XLS. Sheets as tabs, search across all sheets, printing and export; view only'] } },
       { v: '1.0.2', d: '2026-11-23', items: { ru: ['Word, книги и тексты показываются надёжнее: раньше на части ноутбуков документ мог не открыться, а программа зависнуть', 'Вместо бесконечной загрузки появляется понятное сообщение об ошибке', 'Установщик стал легче'], uk: ['Word, книжки й тексти показуються надійніше: раніше на частині ноутбуків документ міг не відкритися, а програма зависнути', 'Замість нескінченного завантаження з’являється зрозуміле повідомлення про помилку', 'Інсталятор став легшим'], en: ['Word, books and text open more reliably: on some laptops a document could fail to open and freeze the app', 'A clear error message instead of endless loading', 'Smaller installer'] } },
